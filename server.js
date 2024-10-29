@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.post("/send-message", async (req, res) => {
     const { to, message } = req.body;
     try {
+        console.log("req.body in send ",req.body)
         console.log("to msg =>", to, message)
         const msg = await client.messages.create({
             body: message,
