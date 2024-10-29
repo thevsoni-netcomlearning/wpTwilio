@@ -41,7 +41,7 @@ app.post("/send-message", async (req, res) => {
 
 // Endpoint to receive incoming WhatsApp messages from Twilio
 app.post("/receive-message", (req, res) => {
-    const { From, Body } = req.body;
+    const { From, Body, MediaUrl0, MessageType } = req.body;
     console.log(`Received a message from ${From}: ${Body}`);
 
     // Emit message to all connected clients (admin frontend)
