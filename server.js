@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const twilio = require("twilio");
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require("cors");
@@ -44,7 +45,8 @@ app.post("/receive-message", (req, res) => {
     console.log(`Received a message from ${From}: ${Body}`);
 
     // Emit message to all connected clients (admin frontend)
-    io.emit("newMessage", { from: From, body: Body });
+    // io.emit("newMessage", { from: From, body: Body });
+    io.emit("newMessage", { from: From, body: Body, mediaUrl: MediaUrl0, messageType: MessageType });
     res.sendStatus(200);
 });
 
