@@ -52,6 +52,9 @@ app.post("/receive-message", (req, res) => {
 
 io.on("connection", (socket) => {
     console.log("Client connected");
+
+    // Test emit to verify client receives data
+    socket.emit("testEvent", { message: "Test data from server" });
     socket.on("disconnect", () => {
         console.log("Client disconnected");
     });
