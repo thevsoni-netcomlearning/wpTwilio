@@ -43,7 +43,7 @@ app.post("/send-message", async (req, res) => {
 app.post("/receive-message", (req, res) => {
     const { From, Body, MediaUrl0, MessageType } = req.body;
     console.log("req.body => ",req.body)
-    console.log(`Received a message from ${From}: ${Body}`);
+    // console.log(`Received a message from ${From}: ${Body}`);
 
     // Emit message to all connected clients (admin frontend)
     // io.emit("newMessage", { from: From, body: Body, mediaUrl: MediaUrl0, messageType: MessageType });
