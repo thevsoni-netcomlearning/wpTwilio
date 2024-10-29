@@ -46,7 +46,7 @@ app.post("/receive-message", (req, res) => {
 
     // Emit message to all connected clients (admin frontend)
     // io.emit("newMessage", { from: From, body: Body, mediaUrl: MediaUrl0, messageType: MessageType });
-    io.emit("newMessage", { from: "From"});
+    io.emit("newMessage", req.body);
     res.sendStatus(200);
 });
 
